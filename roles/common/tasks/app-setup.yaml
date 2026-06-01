@@ -1,10 +1,10 @@
 - name: create system user roboshop #ansible user module does not have option to create user with shell, so we are using command module to create user with shell
-    ansible.builtin.user:
-      name: roboshop
-      system: true
-      home: /app
-      shell: /sbin/nologin  
-      comment: "Roboshop system user"
+  ansible.builtin.user:
+    name: roboshop
+    system: true
+    home: /app
+    shell: /sbin/nologin  
+    comment: "Roboshop system user"
 
 - name: delete old app directory if exists #if developer run the playbook multiple times then it will delete the old app directory and create a new one, so that we can avoid any issues with old files
   ansible.builtin.file:

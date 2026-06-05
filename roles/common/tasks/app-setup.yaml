@@ -10,6 +10,8 @@
   ansible.builtin.file:
        path: /app
        state: absent
+
+
   
 - name: create app directory #ansible app module does not have option to create directory with specific owner and group, so we are using file module to create directory with specific owner and group 
   ansible.builtin.file:

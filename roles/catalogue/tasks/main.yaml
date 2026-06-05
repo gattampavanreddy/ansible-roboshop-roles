@@ -41,6 +41,8 @@
   #if std is negative then loading the products
 
 - name: start and enable catalogue service
+  tags: 
+    - deployment
   ansible.builtin.service:
     name: catalogue   
     state: restarted #restarted is to use because if the service is not running then it will start the service and if the service is already running then it will restart the service

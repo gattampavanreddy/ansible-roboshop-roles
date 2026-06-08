@@ -1,7 +1,6 @@
 - name: enable nginx 1.24
   ansible.builtin.command: dnf module enable nginx:1.24 -y
 
-
 - name: install nginx
   ansible.builtin.dnf:
     name: nginx
@@ -34,6 +33,7 @@
       path: /etc/nginx/nginx.conf
 
 - name: copy nginx configuration file #ansible copy nginx configuration file using template module
+  throttle: 2 #this will limit the number of concurrent tasks to 2, so that we can avoid any issues with too many concurrent tasks
   ansible.builtin.template:
     src: nginx.conf
     dest: /etc/nginx/nginx.conf

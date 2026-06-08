@@ -13,4 +13,4 @@ compose:
     ansible_host: private-ip-address
 keyed_groups:
   - separator: ' '
-    key: tags.component
+    key: tags.Name | regex_replace('-.*$', '')
